@@ -1,28 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+import "../../styles/index.css"; // Importamos los estilos
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
+    const [task, setTask] = useState('');
+    const [taskList, setTaskList] = useState([]);
+    const [hoveredTask, setHoveredTask] = useState(null);
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && task.trim() !== '') {
+            setTaskList([...taskList, { 
+                id: Date.now(), 
+                text: task 
+            }]);
+            setTask('');
+        }
+    };
+
+    const deleteTask = (id) => {
+        setTaskList(taskList.filter(task => task.id !== id));
+    };
+
+    return (
+        <div className="todo-container">
+            <h1>Todo List</h1>
+            
+            <input
+                type="text"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Add task and press Enter"
+                className="task-input"
+            />
+            
+            <div className="task-list">
+                {taskList.length === 0 ? (
+                    <p className="empty-message">No tasks yet</p>
+                ) : (
+                    taskList.map((taskItem) => (
+                        <div 
+                            key={taskItem.id}
+                            className="task-item"
+                            onMouseEnter={() => setHoveredTask(taskItem.id)}
+                            onMouseLeave={() => setHoveredTask(null)}
+                        >
+                            {taskItem.text}
+                            {hoveredTask === taskItem.id && (
+                                <button 
+                                    onClick={() => deleteTask(taskItem.id)}
+                                    className="delete-btn"
+                                >
+                                    🗑️
+                                </button>
+                            )}
+                        </div>
+                    ))
+                )}
+            </div>
+        </div>
+    );
 };
 
 export default Home;
