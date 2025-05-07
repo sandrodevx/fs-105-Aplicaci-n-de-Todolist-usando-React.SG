@@ -1,53 +1,133 @@
-/* Contenedor principal */
-.todo-container {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 1rem;
-    font-family: Arial, sans-serif;
+/* Personalización de colores para Bootstrap */
+:root {
+  --primary-color: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --secondary-color: #d946ef;
+  --light-bg: #f5f3ff;
+  --text-color: #4b5563;
+  --success-color: #10b981;
+  --border-radius: 0.75rem;
 }
 
-/* Input */
-.task-input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+body {
+  background-color: #f8f9fa;
 }
 
-/* Lista de tareas */
-.task-list {
-    margin-top: 1rem;
+/* Personalización del card principal */
+.custom-card {
+  border-radius: var(--border-radius);
+  border: none;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.1);
 }
 
-/* Items individuales */
+/* Título personalizado con gradiente */
+.custom-title {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+/* Input personalizado */
+.custom-input {
+  border: 2px solid #e2e8f0;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
+}
+
+/* Botón de añadir personalizado */
+.custom-btn-add {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-btn-add:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Estilo para tareas pendientes y completadas */
+.task-pending {
+  background-color: #fbfaff;
+  border-left: 3px solid var(--primary-color);
+  transition: all 0.2s ease;
+}
+
+.task-completed {
+  background-color: #ecfdf5;
+  border-left: 3px solid var(--success-color);
+}
+
+/* Checkbox personalizado */
+.task-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #cbd5e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-checkbox:hover {
+  border-color: var(--primary-color);
+}
+
+.task-checkbox.checked {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  color: white;
+}
+
+/* Botón de eliminar */
+.btn-delete {
+  background-color: transparent;
+  color: #cbd5e0;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0 8px;
+  opacity: 0;
+  transition: opacity 0.3s, color 0.2s;
+}
+
+.task-item:hover .btn-delete {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  color: #e53e3e;
+}
+
+/* Efectos hover en las tareas */
 .task-item {
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    background: #f8f9fa;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  transform: translateX(0);
+  transition: transform 0.2s ease;
 }
 
-/* Botón de eliminar (hidden por defecto) */
-.delete-btn {
-    background: none;
-    border: none;
-    color: #dc3545;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.2s;
+.task-item:hover {
+  transform: translateX(3px);
 }
 
-.task-item:hover .delete-btn {
+/* Mensaje de tareas vacías */
+.empty-tasks {
+  color: #a0aec0;
+}
+
+/* Adaptación para dispositivos móviles */
+@media (max-width: 768px) {
+  .task-item .btn-delete {
     opacity: 1;
-}
-
-/* Mensaje cuando no hay tareas */
-.empty-message {
-    color: #6c757d;
-    text-align: center;
-    font-style: italic;
+  }
 }
