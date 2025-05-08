@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import "../../styles/index.css";
 
@@ -44,7 +43,7 @@ const Home = () => {
                                     onKeyDown={handleKeyDown}
                                     placeholder="¿Qué necesitas hacer?"
                                 />
-                                <button
+                                <button 
                                     className="btn custom-btn-add"
                                     onClick={() => {
                                         if (task.trim()) {
@@ -67,11 +66,12 @@ const Home = () => {
                                     tasks.map(task => (
                                         <div
                                             key={task.id}
-                                            className={`task-item d-flex justify-content-between align-items-center p-3 mb-2 rounded ${completedTasks.includes(task.id) ? 'task-completed' : 'task-pending'
-                                                }`}
+                                            className={`task-item d-flex justify-content-between align-items-center p-3 mb-2 rounded ${
+                                                completedTasks.includes(task.id) ? 'task-completed' : 'task-pending'
+                                            }`}
                                         >
                                             <div className="d-flex align-items-center">
-                                                <div
+                                                <div 
                                                     className={`task-checkbox me-3 ${completedTasks.includes(task.id) ? 'checked' : ''}`}
                                                     onClick={() => toggleComplete(task.id)}
                                                 >
@@ -92,7 +92,7 @@ const Home = () => {
                                     ))
                                 )}
                             </div>
-
+                            
                             {tasks.length > 0 && (
                                 <div className="mt-3 text-end small text-muted">
                                     {completedTasks.length} de {tasks.length} completadas
