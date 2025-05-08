@@ -1,4 +1,3 @@
-/* Personalización de colores para Bootstrap */
 :root {
   --primary-color: #8b5cf6;
   --primary-hover: #7c3aed;
@@ -13,14 +12,12 @@ body {
   background-color: #f8f9fa;
 }
 
-/* Personalización del card principal */
 .custom-card {
   border-radius: var(--border-radius);
   border: none;
   box-shadow: 0 10px 25px rgba(139, 92, 246, 0.1);
 }
 
-/* Título personalizado con gradiente */
 .custom-title {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;
@@ -29,7 +26,6 @@ body {
   font-weight: bold;
 }
 
-/* Input personalizado */
 .custom-input {
   border: 2px solid #e2e8f0;
   border-radius: var(--border-radius) 0 0 var(--border-radius);
@@ -41,7 +37,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.25);
 }
 
-/* Botón de añadir personalizado */
 .custom-btn-add {
   background-color: var(--primary-color);
   color: white;
@@ -56,7 +51,6 @@ body {
   background-color: var(--primary-hover);
 }
 
-/* Estilo para tareas pendientes y completadas */
 .task-pending {
   background-color: #fbfaff;
   border-left: 3px solid var(--primary-color);
@@ -68,7 +62,6 @@ body {
   border-left: 3px solid var(--success-color);
 }
 
-/* Checkbox personalizado */
 .task-checkbox {
   width: 22px;
   height: 22px;
@@ -91,7 +84,6 @@ body {
   color: white;
 }
 
-/* Botón de eliminar */
 .btn-delete {
   background-color: transparent;
   color: #cbd5e0;
@@ -120,12 +112,10 @@ body {
   transform: translateX(3px);
 }
 
-/* Mensaje de tareas vacías */
 .empty-tasks {
   color: #a0aec0;
 }
 
-/* Adaptación para dispositivos móviles */
 @media (max-width: 768px) {
   .task-item .btn-delete {
     opacity: 1;
