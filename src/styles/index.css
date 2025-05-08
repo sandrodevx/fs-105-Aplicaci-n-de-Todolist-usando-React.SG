@@ -115,8 +115,4 @@ body {
   color: #a0aec0;
 }
 
-@media (max-width: 768px) {
-  .task-item .btn-delete {
-    opacity: 1;
-  }
-}
+
