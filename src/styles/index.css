@@ -102,7 +102,6 @@ body {
   color: #e53e3e;
 }
 
-/* Efectos hover en las tareas */
 .task-item {
   transform: translateX(0);
   transition: transform 0.2s ease;
